@@ -1,0 +1,40 @@
+store - is one data object for the app
+reducers - upadte the store
+actions - activate reducers 
+
+================================================
+
+# reducers are actually functions with 2 parameters a default state and a 2nd parameter as an action.
+actions pass into reducers to eventually activate different parts of our function in order to update the store.
+actions go into the reducers, describe how to update store as a result.
+
+# Provider component is in react-redux package.
+It allow us to literally provide the store we create for our entire application,
+meaning we can insert root App component within a pair of provider tags and specify our store as an attribute,
+and boom our app on every component level has access to the store.
+
+# createStore function is in redux package.
+createStore literally creates a store by passing in our rootReducer as an argument.
+
+# By defining different action types reducers know how to take actions accordingly.
+# Action creators are functions that return actions.
+Actions are JS objects with type property, it will also contain any relevent data that we decide to place within it.
+
+# connect function is in react-redux. It allow us to access data from our store within this component.
+It literally connect to our redux state.
+connect function will have 2 parameters - 
+    -> first is mapStateToProps function which maps the data sent by redux to the props of the component.
+    -> second parameter is null for now.
+So now the data which is send by redux is accessible through props of the component we connect our redux to.
+
+# Now reason mapStateToProps returns an object is that
+this object is then used to return data to become part of the props in our component.
+
+# second parameter in connect function is mapDispatchToProps.
+This binds our action creators to our props on the component.
+To do this we need to import bindActionCreators function from redux.
+
+# bindActionCreators takes 2 parameter - 
+    ->  one is an object pertaining to the action creators we want to bind
+    ->  other, we pass dispatch argument from our original function
+        which ends up binding the action creator to our props in the component.
